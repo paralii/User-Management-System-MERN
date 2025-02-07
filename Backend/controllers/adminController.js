@@ -1,17 +1,11 @@
 import User from "../Models/userModel.js";
-
 import bcrypt from 'bcrypt' ;
-
 import jwt from 'jsonwebtoken' ;
-
 import "dotenv/config";
-
 import fs from "fs";
 import { resolve } from "path";
-
 const secret_key = process.env.JWT_SECRET;
-
-const BASE_URL = process.env.BASE_URL
+const BASE_URL = process.env.BASE_URL;
 
 
 //verify admin
@@ -67,7 +61,7 @@ const fetchUsers = async (req,res) =>{
         const usersWithFullPicUrl = users.map(user =>{
             const fullPicUrl = user.profilePic 
             ? `${BASE_URL}/${user.profilePic.replace(/\\/g, '/')}`
-            : `${BASE_URL}/uploads/rb_174669.png`;
+            : `${BASE_URL}/uploads/default-image.png`;
 
             return{
                 ...user._doc,

@@ -2,11 +2,11 @@ import mongoose from "mongoose";
 
 const connectDB = async()=>{
     try{
-        await mongoose.connect('mongodb://127.0.0.1:27017/UMS');
-        console.log("MongoDB connected successfully");
+        await mongoose.connect('mongodb://localhost:27017/ums');
+        console.log("MongoDB connected ✅");
     }
     catch(error){
-        console.error("Mongodb connection failed",error.message);
+        console.error("Mongodb connection failed ❌",error.message);
         process.exit(1);
     }
 }

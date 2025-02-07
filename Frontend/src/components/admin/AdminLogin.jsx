@@ -75,65 +75,64 @@
       }
 
       return (
-              <div className="min-h-screen flex items-center justify-center bg-gray-600 px-4">
-                <div className="w-full max-w-md bg-gray-800 text-white rounded-lg shadow-lg p-8">
-                  <h1 className="text-2xl font-bold text-center mb-6">Admin Login</h1>
-                  <form onSubmit={handleSubmit} className="space-y-6">     
-                    {/* Email Field */}
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium">
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="Email"
-                        className="w-full px-4 py-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
-                      />
-                    </div>
-
-                    {/* Password Field */}
-                    <div>
-                      <label htmlFor="password" className="block text-sm font-medium">
-                        Password
-                      </label>
-                      <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        value={formData.password}
-                        onChange={handleChange}
-                        placeholder="Password"
-                        className="w-full px-4 py-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
-                      />
-                    </div>
-          
-                    {/* Submit Button */}
-                    <button
-                      type="submit"
-                      className="w-full bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 rounded transition-colors"
-                    >
-                      Login
-                    </button>
-                  </form>
-                  <div className="text-center mt-3">
-                    <Link to="/signup" className="text-purple-400 hover:underline">
-                    Don't have an account ? Register
-                    </Link>
-                  </div>
-                  <div className="text-center mt-3">
-                    <Link to="/" className="text-purple-400 hover:underline">
-                      User Login
-                    </Link>
-                  </div>
-                  <ToastContainer position="top-center" />
-                </div>
-                
+        <div className="min-h-screen flex items-center justify-center bg-[#121212] px-4">
+          <div className="w-full max-w-md bg-[#1E1E1E] text-white rounded-lg shadow-lg p-8">
+            <h1 className="text-2xl font-bold text-center mb-6">Admin Login</h1>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Email Field */}
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Email"
+                  className="w-full px-4 py-2 rounded bg-[#2D2D2D] text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                />
               </div>
-            );
-  }
-
-  export default AdminLogin
+    
+              {/* Password Field */}
+              <div>
+                <label htmlFor="password" className="block text-sm font-medium">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  placeholder="Password"
+                  className="w-full px-4 py-2 rounded bg-[#2D2D2D] text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                />
+              </div>
+    
+              {/* Submit Button */}
+              <button
+                type="submit"
+                className="w-full bg-cyan-500 hover:bg-cyan-600 text-black font-medium py-2 rounded transition-colors"
+              >
+                Login
+              </button>
+            </form>
+            <div className="text-center mt-3">
+              <Link to="/signup" className="text-cyan-400 hover:underline">
+                Don't have an account? Register
+              </Link>
+            </div>
+            <div className="text-center mt-3">
+              <Link to="/" className="text-cyan-400 hover:underline">
+                User Login
+              </Link>
+            </div>
+            <ToastContainer position="top-center" theme="dark" />
+          </div>
+        </div>
+      );
+    };
+    
+    export default AdminLogin;

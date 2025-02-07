@@ -1,15 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
-
-import { useSelector, useDispatch } from 'react-redux';
-
+import { useState, useEffect, useRef } from 'react';
+import {  useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
 import { logout } from '../../redux/authSlice';
-
 import { toast, ToastContainer } from 'react-toastify';
-
 import axios from "../../Api/axiosInstance.jsx"
-
 import "react-toastify/dist/ReactToastify.css";
 
 const UserHome = () => {
@@ -40,12 +34,10 @@ const UserHome = () => {
 
     setUserData({name , email , mobile , role});
 
+
     if(profilePic){
-      setPreviewUrl(profilePic)
-    }
-    else{
-      setPreviewUrl('/defaultImages/rb_174669.png')
-    }
+      setPreviewUrl(profilePic ||'/defaultImages/default-image.png')
+    } 
     }
     catch(err){
       console.log(err);
@@ -90,7 +82,7 @@ const UserHome = () => {
 
     try {
       setLoading(true);
-      const response = await axios.post("/users/updateProfile", formData);
+      await axios.post("/users/updateProfile", formData);
       setEdit(false);
       setLoading(false);
       toast.success("Profile picture updated successfully", {
@@ -116,6 +108,7 @@ const UserHome = () => {
     navigate("/login");
   };
 
+  
   return (
     <div className="min-h-screen bg-[#121212] text-gray-100">
       <div className="container mx-auto px-4 py-8">
@@ -130,7 +123,7 @@ const UserHome = () => {
             {/* Profile Picture Section */}
             <div className="absolute -top-20 left-1/2 transform -translate-x-1/2">
               <div className="relative">
-                <div className="w-40 h-40 rounded-full border-4 border-[#1E1E1E] shadow-xl overflow-hidden bg-[#2D2D2D]">
+                <div className="w-40 h-40 rounded-full border-4  border-lime-500 shadow-l overflow-hidden my-2 bg-[#2D2D2D]">
                   <img
                     src={previewUrl}
                     alt="profile pic"
@@ -139,13 +132,12 @@ const UserHome = () => {
                   {!edit && (
                     <button
                       onClick={() => fileInputRef.current.click()}
-                      className="absolute top-45 left-0 right-0 mx-auto bg-black bg-opacity-30 text-white py-1 text-sm"
+                      className="absolute top-50 left-0 right-0 mx-auto  text-cyan-400  py-1 text-sm"
                     >
                       Edit Photo
                     </button>
                   )}
                 </div>
-
                 <input
                   type="file"
                   ref={fileInputRef}
@@ -153,7 +145,7 @@ const UserHome = () => {
                   accept="image/*"
                   onChange={handleImageChange}
                 />
-
+                    
                 {edit && newProfilePic && (
                   <div className="absolute top-30 w-full flex justify-center gap-4 mt-[10px]">
                     <button
@@ -162,7 +154,7 @@ const UserHome = () => {
                       className={`px-3 py-1 rounded-full text-xs ${
                         loading
                           ? 'bg-gray-600 cursor-not-allowed'
-                          : 'bg-purple-600 hover:bg-purple-700'
+                          : 'bg-lime-500 hover:bg-lime-600'
                       } transition-colors duration-300`}
                     >
                       {loading ? 'Saving...' : 'Save'}
@@ -172,7 +164,7 @@ const UserHome = () => {
                         setEdit(false);
                         setPreviewUrl(null);
                         setNewProfilePic(null);
-                        setKey((prev)=>prev+1)
+                        setKey((prev) => prev + 1);
                       }}
                       className="px-3 py-1 rounded-full text-xs bg-red-600 hover:bg-red-700 transition-colors duration-300"
                     >
@@ -186,25 +178,11 @@ const UserHome = () => {
             {/* User Info Section */}
             <div className="pt-28 text-center">
               <h1 className="text-3xl font-bold text-gray-100 mt-4">{userData.name}</h1>
-              <p className="text-purple-400 mt-1">{userData.role}</p>
-
-              {/* Contact Information */}
-              <div className="mt-8 grid gap-6 max-w-2xl mx-auto">
-                <div className="p-4 bg-[#2D2D2D] rounded-xl border border-gray-800">
-                  <h2 className="text-sm font-medium text-gray-400 mb-2">Email Address</h2>
-                  <p className="text-gray-200">{userData.email}</p>
-                </div>
-
-                <div className="p-4 bg-[#2D2D2D] rounded-xl border border-gray-800">
-                  <h2 className="text-sm font-medium text-gray-400 mb-2">Mobile Number</h2>
-                  <p className="text-gray-200">{userData.mobile || 'Not provided'}</p>
-                </div>
-              </div>
-
-              {/* Logout Button */}
+              <p className="text-lime-400 mt-1">{userData.role}</p> <p className="text-gray-300 mt-1">{userData.email}</p>
+              <p className="text-gray-300 mt-1">{userData.mobile}</p>
               <button
                 onClick={handleLogout}
-                className="mt-8 px-6 py-2 bg-red-600 hover:bg-red-700 text-white rounded-full text-sm font-medium transition-colors duration-300"
+                className="mt-4 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded transition-colors duration-300"
               >
                 Logout
               </button>
@@ -212,7 +190,7 @@ const UserHome = () => {
           </div>
         </div>
       </div>
-      <ToastContainer position="top-center" theme="dark" />
+      <ToastContainer />
     </div>
   );
 };

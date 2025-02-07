@@ -1,13 +1,7 @@
 import {Edit ,Trash2} from 'lucide-react'
-
-import AddUserModal from './Modal/AddUserModal';
-
 import EditUserModal from './Modal/EditUserModal.jsx';
-
 import { useState } from 'react';
-
 import axios from '../../../Api/axiosInstance.jsx';
-
 import { Modal , message } from 'antd';
 
 const Table = ({ users, filteredUsers ,fetchUsers }) => {
@@ -60,8 +54,8 @@ const Table = ({ users, filteredUsers ,fetchUsers }) => {
 
   return (
     <div className="overflow-x-auto">
-      <table className="w-full text-left text-gray-200">
-        <thead className="bg-gray-800 text-gray-400">
+      <table className="w-full text-left text-white">
+        <thead className="bg-cyan-600 text-white">
           <tr>
             <th className="p-4">#</th>
             <th className="p-4">Profile</th>

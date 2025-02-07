@@ -1,25 +1,17 @@
 import User from "../Models/userModel.js";
-
 import { validateUser } from "../Validation/userValidation.js";
-
 import bcrypt from 'bcrypt';
-
 import jwt from 'jsonwebtoken'
-
 import fs from 'fs'
-
 import { resolve } from 'path'
-
 import "dotenv/config";
-
 const BASE_URL = process.env.BASE_URL;
-
 const secret_key = process.env.JWT_SECRET;
 
 //Registering a user
 
 const insertUser = async(req,res)=>{
-    const {name,email,mobile,password,confirmPassword,role} = req.body;
+    const {name,email,mobile,password,role} = req.body;
 
     const validationErrors = validateUser(req.body);
 
@@ -127,7 +119,7 @@ const profile = async (req,res) =>{
 
         const {name,email,mobile,role,profilePic} = userDetails;
 
-        const fullPicUrl = profilePic ? `${BASE_URL}/${profilePic.replace(/\\/g, '/')}` : `${BASE_URL}/uploads/rb_174669.png` ;
+        const fullPicUrl = profilePic ? `${BASE_URL}/${profilePic.replace(/\\/g, '/')}` : `${BASE_URL}/uploads/default-image.png` ;
         
         res.status(200).json({name,email,mobile,role,profilePic:fullPicUrl});
     }

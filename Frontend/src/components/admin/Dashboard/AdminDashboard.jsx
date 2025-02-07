@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react";
-
 import axios from "../../../Api/axiosInstance.jsx";
-
 import Header from "./Header";
-
 import Table from "./Table";
-
 import TableHeader from "./TableHeader";
 
 
@@ -13,7 +9,6 @@ const AdminDashboard = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [users , setUsers] = useState([]);
     const [filteredUser , setFilteredUser] = useState([]);
-    const [userDetails , setUserDetails] = useState({});
   
     //fetching users from backend
 
@@ -38,10 +33,10 @@ const AdminDashboard = () => {
       : users;
   
     return (
-      <div className="min-h-screen bg-gray-900">
+      <div className="min-h-screen bg-black">
         <Header />
         <main className="p-6">
-          <div className="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+          <div className="bg-black rounded-lg shadow-lg overflow-hidden">
             <TableHeader onSearch={setSearchTerm} fetchUsers={fetchUsers} />
             <Table users={users} filteredUsers={filteredUsers} fetchUsers={fetchUsers}/>
           </div>

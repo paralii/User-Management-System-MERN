@@ -1,16 +1,7 @@
-import React from "react";
-
-import {User} from 'lucide-react'
-
 import { useState } from "react";
-
 import {message} from 'antd';
-
 import axios from "../../../../Api/axiosInstance.jsx";
-
-
 import {validateForm } from "../../../../validation/adminAddUserValidation.jsx"; 
-
 
 const AddUserModal = ({ isOpen, setIsOpen , fetchUsers }) => {
   if (!isOpen) return null;
@@ -87,7 +78,7 @@ const AddUserModal = ({ isOpen, setIsOpen , fetchUsers }) => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500"
                   placeholder="Enter name"
                   required
                 />
@@ -102,7 +93,7 @@ const AddUserModal = ({ isOpen, setIsOpen , fetchUsers }) => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500"
                   placeholder="Enter email"
                   required
                 />
@@ -117,7 +108,7 @@ const AddUserModal = ({ isOpen, setIsOpen , fetchUsers }) => {
                   name="mobile"
                   value={formData.mobile}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500"
                   placeholder="Enter mobile number"
                   required
                 />
@@ -132,7 +123,7 @@ const AddUserModal = ({ isOpen, setIsOpen , fetchUsers }) => {
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500"
                   placeholder="Enter password"
                   required
                 />
@@ -148,7 +139,7 @@ const AddUserModal = ({ isOpen, setIsOpen , fetchUsers }) => {
                 </button>
                 <button
                   type="submit"
-                  className="w-full px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-500 transition-colors"
+                  className="w-full px-4 py-2 bg-cyan-600 text-white rounded-md hover:bg-cyan-500 transition-colors"
                 >
                   Create
                 </button>
@@ -159,6 +150,6 @@ const AddUserModal = ({ isOpen, setIsOpen , fetchUsers }) => {
       </div>
     </div>
   );
-}
+};
 
-export default AddUserModal
+export default AddUserModal;

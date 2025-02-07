@@ -1,14 +1,8 @@
 
-import React, { useState } from 'react';
-
+import { useState } from 'react';
 import { User } from 'lucide-react';
-
 import axios  from '../../../../Api/axiosInstance.jsx';
-
 import {message} from 'antd';
-
-
-
 import {validateForm } from "../../../../validation/AdminEditUserValidation.jsx"; 
 
 // Edit User Modal Component
@@ -81,7 +75,7 @@ const EditUserModal = ({ isOpen, setIsOpen, userDetails,fetchUsers  }) => {
               />
             ) : (
               <div className="w-24 h-24 bg-gray-800 rounded-full flex items-center justify-center">
-                <User size={48} />
+                <User  size={48} />
               </div>
             )}
           </div>
@@ -97,7 +91,7 @@ const EditUserModal = ({ isOpen, setIsOpen, userDetails,fetchUsers  }) => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500"
                   placeholder="Enter name"
                 />
               </div>
@@ -111,7 +105,7 @@ const EditUserModal = ({ isOpen, setIsOpen, userDetails,fetchUsers  }) => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500"
                   placeholder="Enter email"
                 />
               </div>
@@ -125,7 +119,7 @@ const EditUserModal = ({ isOpen, setIsOpen, userDetails,fetchUsers  }) => {
                   name="mobile"
                   value={formData.mobile}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500"
                   placeholder="Enter mobile number"
                 />
               </div>
@@ -140,7 +134,7 @@ const EditUserModal = ({ isOpen, setIsOpen, userDetails,fetchUsers  }) => {
                 </button>
                 <button
                   type="submit"
-                  className="w-full px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-500 transition-colors"
+                  className="w-full px-4 py-2 bg-cyan-600 text-white rounded-md hover:bg-cyan-500 transition-colors"
                 >
                   Update
                 </button>
@@ -150,8 +144,7 @@ const EditUserModal = ({ isOpen, setIsOpen, userDetails,fetchUsers  }) => {
         </div>
       </div>
     </div>
-
   );
 };
 
-export default EditUserModal
+export default EditUserModal;
